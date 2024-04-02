@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Tip calculator app</title>
+</head>
+
+<body class="bg-light-grayish-cyan font-default">
+  <!-- main section starts here -->
+  <main class="w-full md:w-[55%] flex flex-col md:mt-[4rem] md:mx-auto">
+    <!-- logo container goes here -->
+    <div class="self-center py-6 md:py-10 md:mb-2">
+      <img src="./images/logo.svg" alt="Splitter Logo">
+    </div>
+
+    <!-- tip calculator box starts here  -->
+    <div
+      class="w-full md:h-[60vh] bg-white flex flex-col md:flex-row border rounded-t-2xl md:rounded-2xl p-[1.5rem] md:p-[2rem]">
+      <!-- left container goes here -->
+      <div class="w-full md:h-[50vh] md:w-[50%] flex flex-col mb-6 md:mr-8">
+        <!-- bill input section goes here -->
+        <div class="mb-[2.5rem]">
+          <div class="text-sm text-dark-grayish-cyan mb-2">Bill
+            <span id="billErr" class="hidden float-right text-orange-700">Can't be zero</span>
+          </div>
+          <div
+            class="w-full flex justify-between bg-very-light-grayish-cyan border-2 rounded-md hover:cursor-pointer hover:border-strong-cyan focus-within:border-strong-cyan px-[1rem] py-[0.5rem]">
+            <img class="w-[0.75rem] h-[1rem] self-center" src="./images/icon-dollar.svg" alt="Dollar Icon">
+            <input id="billAmount"
+              class="w-[50%] md:w-full text-right text-very-dark-cyan bg-very-light-grayish-cyan outline-none text-[1.5rem] placeholder:text-light-grayish-cyan"
+              type="text" placeholder="0">
+          </div>
+        </div>
+
+        <!-- tip input section goes here  -->
+        <div class="mb-[2rem]">
+          <span class="block text-sm text-dark-grayish-cyan mb-2">Select Tip %</span>
+          <div id="tipContainer" class="w-full grid grid-cols-2 md:grid-cols-3 gap-4">
+            <button
+              class="bg-very-dark-cyan rounded-md text-xl text-very-light-grayish-cyan text-center hover:text-very-dark-cyan hover:bg-strong-cyan py-2"
+              value="5">5%</button>
+            <button
+              class="bg-very-dark-cyan rounded-md text-xl text-very-light-grayish-cyan text-center hover:text-very-dark-cyan hover:bg-strong-cyan py-2"
+              value="10">10%</button>
+            <button
+              class="bg-very-dark-cyan rounded-md text-xl text-very-light-grayish-cyan text-center hover:text-very-dark-cyan hover:bg-strong-cyan py-2"
+              value="15">15%</button>
+            <button
+              class="bg-very-dark-cyan rounded-md text-xl text-very-light-grayish-cyan text-center hover:text-very-dark-cyan hover:bg-strong-cyan py-2"
+              value="25">25%</button>
+            <button
+              class="bg-very-dark-cyan rounded-md text-xl text-very-light-grayish-cyan text-center hover:text-very-dark-cyan hover:bg-strong-cyan py-2"
+              value="50">50%</button>
+            <input id="tipCustomAmount"
+              class="text-very-dark-cyan bg-very-light-grayish-cyan  rounded-md text-right text-[1.5rem] hover:cursor-pointer hover:border-2 hover:border-strong-cyan focus:outline-strong-cyan placeholder:text-dark-grayish-cyan placeholder:text-center pr-2"
+              type="text" placeholder="Custom">
+          </div>
+        </div>
+
+
+        <!-- num of people input section goes here  -->
+        <div>
+          <div class="text-sm text-dark-grayish-cyan mb-2">Number of People
+            <span id="peopleErr" class="hidden float-right text-orange-700">Can't be zero</span>
+          </div>
+          <div
+            class="w-full flex justify-between bg-very-light-grayish-cyan border-2 rounded-md hover:cursor-pointer hover:border-strong-cyan focus-within:border-strong-cyan px-[1rem] py-[0.5rem]">
+            <img class="w-[0.75rem] h-[1rem] self-center" src="./images/icon-person.svg" alt="Person Icon">
+            <input id="numOfPeople"
+              class="w-[50%] md:w-full text-right text-very-dark-cyan bg-very-light-grayish-cyan outline-none text-[1.5rem] placeholder:text-light-grayish-cyan"
+              type="text" placeholder="0">
+          </div>
+        </div>
+      </div>
+
+
+      <!-- right container goes here -->
+      <div
+        class="w-full md:h-[50vh] md:w-[50%] flex flex-col relative rounded-lg bg-very-dark-cyan pt-8 pb-4 px-6 md:py-12 md:px-8">
+        <!-- tip amount per person section goes here  -->
+        <div class="flex justify-between mb-8 md:mb-[3.5rem]">
+          <div>
+            <h2 class="text-light-grayish-cyan text-sm">Tip Amount</h2>
+            <p class="text-[0.75rem] text-grayish-cyan">/ person</p>
+          </div>
+
+          <h1 id="tipPerPerson" class="text-4xl text-strong-cyan">$0.00</h1>
+        </div>
+
+        <!-- total per person section goes here  -->
+        <div class="flex justify-between mb-10 md:mb-auto">
+          <div>
+            <h2 class="text-light-grayish-cyan text-sm">Total</h2>
+            <p class="text-[0.75rem] text-grayish-cyan">/ person</p>
+          </div>
+
+          <h1 id="totalPerPerson" class="text-4xl text-strong-cyan">$0.00</h1>
+        </div>
+
+        <!-- reset button goes here -->
+        <button id="resetBtn"
+          class="w-full md:w-[80%] self-center md:absolute md:bottom-[2rem] rounded-md uppercase  bg-dark-grayish-cyan text-light-grayish-cyan hover:bg-strong-cyan hover:text-very-dark-cyan py-3">Reset</button>
+      </div>
+    </div>
+    <!-- tip calculator box starts here  -->
+  </main>
+  <!-- main section ends here -->
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Supath Shrestha</a>.
+  </div>
+  <script src="calculator.js"></script>
+</body>
+
+</html>
