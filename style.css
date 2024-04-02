@@ -646,6 +646,14 @@ video {
   height: 1rem;
 }
 
+.max-h-\[100vh\]{
+  max-height: 100vh;
+}
+
+.max-h-screen{
+  max-height: 100vh;
+}
+
 .w-\[0\.75rem\]{
   width: 0.75rem;
 }
@@ -941,14 +949,6 @@ video {
 
   .md\:mt-\[4rem\]{
     margin-top: 4rem;
-  }
-
-  .md\:h-\[50vh\]{
-    height: 50vh;
-  }
-
-  .md\:h-\[60vh\]{
-    height: 60vh;
   }
 
   .md\:w-\[50\%\]{
