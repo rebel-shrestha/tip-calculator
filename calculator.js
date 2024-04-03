@@ -3,17 +3,7 @@ const numOfPeopleInput = document.querySelector("#numOfPeople");
 const tipContainer = document.querySelector("#tipContainer");
 const tipInput = document.querySelector("#tipCustomAmount");
 const resetBtn = document.querySelector("#resetBtn");
-
-
-//checking if bill amount is zero
-billInput.addEventListener("input", () => {
-    if (billInput.value == "0") {
-        document.querySelector("#billErr").style.display = "inline";
-    } else {
-        document.querySelector("#billErr").style.display = "none";
-        calculate();
-    }
-});
+const allInputFields = document.querySelectorAll("input[type='number']")
 
 
 //setting the tip% value in session storage
@@ -41,17 +31,6 @@ tipInput.addEventListener("input", () => {
     calculate();
 });
 
-//checking if number of people is zero
-numOfPeopleInput.addEventListener("input", () => {
-    if (numOfPeopleInput.value == "0") {
-        document.querySelector("#peopleErr").style.display = "inline";
-    } else {
-        document.querySelector("#peopleErr").style.display = "none";
-        calculate();
-    }
-});
-
-
 // calculate tip per person and total bill per person 
 function calculate() {
     if (billInput.value && numOfPeopleInput.value) {
@@ -68,8 +47,8 @@ function calculate() {
         let tipPerPerson = tip / numOfPeople;
         let billPerPerson = totalBill / numOfPeople;
 
-        document.querySelector("#tipPerPerson").innerHTML = "$" + tipPerPerson.toFixed(2);
-        document.querySelector("#totalPerPerson").innerHTML = "$" + billPerPerson.toFixed(2);
+        document.querySelector("#tipPerPerson").innerHTML = `$${tipPerPerson.toFixed(2)}`;
+        document.querySelector("#totalPerPerson").innerHTML = `$${billPerPerson.toFixed(2)}`;
         resetBtn.style.backgroundColor = "hsl(172, 67%, 45%)";
         resetBtn.style.color = "hsl(183, 100%, 15%)";
     }
@@ -90,6 +69,48 @@ resetBtn.addEventListener("click", () => {
     resetBtn.style.backgroundColor = "hsl(186, 14%, 43%)";
     resetBtn.style.color = "hsl(185, 41%, 84%)";
 })
+
+//checking if bill amount is zero
+billInput.addEventListener("input", (e) => {
+    let errorMsg = document.querySelector("#billErr")
+
+    if (parseInt(billInput.value) === 0) {
+        errorMsg.style.display = "inline";
+    } else {
+        errorMsg.style.display = "none";
+        calculate();
+    }
+});
+
+
+//checking if number of people is zero
+numOfPeopleInput.addEventListener("input", () => {
+    let errorMsg = document.querySelector("#peopleErr")
+
+    if (parseInt(numOfPeopleInput.value) === 0) {
+        errorMsg.style.display = "inline";
+    } else {
+        errorMsg.style.display = "none";
+        calculate();
+    }
+});
+
+//prevent default event for mouse scroll and keyboard up/down on input[type=number] field
+for (let i = 0; i < allInputFields.length; i++) {
+    const element = allInputFields[i];
+
+    element.addEventListener("wheel", (e) => {
+        e.preventDefault()
+    })
+
+    element.addEventListener("keydown", (e) => {
+        let arr = ["ArrowUp", "ArrowDown", "+", "-", "e"]
+        if (arr.includes(e.key)) {
+            e.preventDefault()
+        }
+    })
+}
+
 
 
 //to remove tip percent value from session on page relaod

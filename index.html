@@ -11,11 +11,11 @@
   <title>Tip calculator app</title>
 </head>
 
-<body class="max-h-screen bg-light-grayish-cyan font-default">
+<body class="max-h-screen flex flex-col justify-center bg-light-grayish-cyan font-default">
   <!-- main section starts here -->
-  <main class="w-full md:w-[55%] flex flex-col md:mt-[4rem] md:mx-auto">
+  <main class="w-full md:w-[65%] flex flex-col md:mx-auto">
     <!-- logo container goes here -->
-    <div class="self-center py-6 md:py-10 md:mb-2">
+    <div class="self-center py-6 md:py-10 md:mb-6">
       <img src="./images/logo.svg" alt="Splitter Logo">
     </div>
 
@@ -34,7 +34,7 @@
             <img class="w-[0.75rem] h-[1rem] self-center" src="./images/icon-dollar.svg" alt="Dollar Icon">
             <input id="billAmount"
               class="w-full text-right text-very-dark-cyan bg-very-light-grayish-cyan outline-none text-[1.5rem] placeholder:text-light-grayish-cyan"
-              type="text" placeholder="0">
+              type="number" placeholder="0">
           </div>
         </div>
 
@@ -58,8 +58,8 @@
               class="bg-very-dark-cyan rounded-md text-xl text-very-light-grayish-cyan text-center hover:text-very-dark-cyan hover:bg-strong-cyan py-2"
               value="50">50%</button>
             <input id="tipCustomAmount"
-              class="text-very-dark-cyan bg-very-light-grayish-cyan  rounded-md text-right text-[1.5rem] hover:cursor-pointer hover:border-2 hover:border-strong-cyan focus:outline-strong-cyan placeholder:text-dark-grayish-cyan placeholder:text-center pr-2"
-              type="text" placeholder="Custom">
+              class="text-very-dark-cyan bg-very-light-grayish-cyan rounded-md text-right text-[1.5rem] hover:cursor-pointer hover:border-2 hover:border-strong-cyan focus:outline-strong-cyan placeholder:text-dark-grayish-cyan placeholder:text-center pr-2"
+              type="number" placeholder="Custom">
           </div>
         </div>
 
@@ -74,7 +74,7 @@
             <img class="w-[0.75rem] h-[1rem] self-center" src="./images/icon-person.svg" alt="Person Icon">
             <input id="numOfPeople"
               class="w-full text-right text-very-dark-cyan bg-very-light-grayish-cyan outline-none text-[1.5rem] placeholder:text-light-grayish-cyan"
-              type="text" placeholder="0">
+              type="number" placeholder="0">
           </div>
         </div>
       </div>
