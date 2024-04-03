@@ -942,6 +942,16 @@ input[type="number"]::-webkit-outer-spin-button,
     margin-bottom: 4rem;
   }
 
+  .md\:my-\[5rem\]{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .md\:my-\[6rem\]{
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+  }
+
   .md\:mb-2{
     margin-bottom: 0.5rem;
   }
@@ -996,6 +1006,10 @@ input[type="number"]::-webkit-outer-spin-button,
 
   .md\:w-\[65\%\]{
     width: 65%;
+  }
+
+  .md\:w-\[62\%\]{
+    width: 62%;
   }
 
   .md\:grid-cols-3{
